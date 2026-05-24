@@ -40,7 +40,7 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 rounded-full border shadow-lg ring-4 ring-muted md:size-32">
-                <AvatarImage alt={"Alief Adha"} src="/hero.png" />
+                <AvatarImage alt={"Alief Adha"} src="/hero.webp" />
                 <AvatarFallback>AA</AvatarFallback>
               </Avatar>
             </BlurFade>
