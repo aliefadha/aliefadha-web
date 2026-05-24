@@ -1,7 +1,6 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Geist_Mono, Inter } from "next/font/google"
 
 import "@workspace/ui/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils"
 import { FlickeringGrid } from "@workspace/ui/components/flickering-grid"
 import { TooltipProvider } from "@workspace/ui/components/tooltip"
@@ -75,7 +74,6 @@ export default function RootLayout({
       )}
     >
       <body>
-        {/*<ThemeProvider>*/}
         <TooltipProvider>
           <div className="absolute inset-0 top-0 right-0 left-0 z-0 h-[100px] overflow-hidden">
             <FlickeringGrid
@@ -94,7 +92,6 @@ export default function RootLayout({
           </div>
           <Navbar />
         </TooltipProvider>
-        {/*</ThemeProvider>*/}
       </body>
     </html>
   )
