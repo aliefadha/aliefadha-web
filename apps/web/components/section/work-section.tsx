@@ -12,6 +12,19 @@ import { cn } from "@workspace/ui/lib/utils"
 
 const work = [
   {
+    company: "PT Bank Rakyat Indonesia",
+    href: "https://bri.co.id",
+    location: "Jakarta, Indonesia",
+    title: "AI Quality Control Tester",
+    logoUrl: "/bri.svg",
+    start: "June 2026",
+    end: "Present",
+    description: [
+      "Validated the migration of 100+ services across three AI-powered banking products by performing smoke tests and monitoring in Elastic APM.",
+      "Performed data quality checks on ETL pipelines within the Cloudera Machine Learning platform, validating data accuracy and consistency against Business Requirements Document (BRD) specifications.",
+    ],
+  },
+  {
     company: "Metro Indonesian Software",
     href: "https://metro-software.com/",
     badges: [],
@@ -36,9 +49,9 @@ const work = [
     start: "Sept 2025",
     end: "Nov 2025",
     description: [
-      "Designed and implemented an ACID-compliant PostgreSQL database.",
-      "Integrated backend with notification system using Firebase.",
-      "Connected LLM models to backend for sentiment analysis and content summary.",
+      "Integrated NestJS with Firebase Cloud Messaging for token-based notification services.",
+      "Integrated Better Auth into the NestJS backend to implement secure user authentication and authorization.",
+      "Optimized database schema initialization, ensuring data consistency and integrity across environments.",
     ],
   },
   {
@@ -68,25 +81,32 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
   }
 
   return (
-    <img
-      src={src}
-      alt={alt}
-      className="size-8 flex-none overflow-hidden rounded-full border object-contain p-1 shadow ring-2 ring-border md:size-10"
-      onError={() => setImageError(true)}
-    />
+    <div className="size-8 flex-none rounded-full border p-2 shadow ring-2 ring-border md:size-10">
+      <img
+        src={src}
+        alt={alt}
+        className="size-full object-contain"
+        onError={() => setImageError(true)}
+      />
+    </div>
   )
 }
 
 export default function WorkSection() {
   return (
-    <Accordion type="single" collapsible className="grid w-full gap-6">
+    <Accordion
+      type="single"
+      collapsible
+      defaultValue={work[0]?.company}
+      className="grid w-full gap-6"
+    >
       {work.map((work) => (
         <AccordionItem
           key={work.company}
           value={work.company}
-          className="grid w-full gap-2 border-b-0"
+          className="grid w-full border-b-0"
         >
-          <AccordionTrigger className="group cursor-pointer rounded-none p-0 transition-colors hover:no-underline [&_[data-slot=accordion-trigger-icon]]:hidden [&>svg]:hidden">
+          <AccordionTrigger className="group mb-4 cursor-pointer rounded-none p-0 transition-colors data-[state=open]:mb-0 hover:no-underline [&_[data-slot=accordion-trigger-icon]]:hidden [&>svg]:hidden">
             <div className="flex w-full items-center justify-between gap-x-3 text-left">
               <div className="flex min-w-0 flex-1 items-center gap-x-3">
                 <LogoImage src={work.logoUrl} alt={work.company} />
